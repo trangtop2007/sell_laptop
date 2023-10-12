@@ -62,8 +62,8 @@
 </template>
 <script setup>
 import { onMounted, reactive, ref } from 'vue';
-import DriverHardfilter from './filter_product/DriverHardfilter.vue';
-import CapacityRamFilter from './filter_product/CapacityRamFilter.vue';
+import DriverHardfilter from "./filter_product/DriverHardfilter.vue"
+import CapacityRamFilter from "./filter_product/CapacityRamFilter.vue"
 const show_filter = reactive({
     driver: false,
     ram:false
