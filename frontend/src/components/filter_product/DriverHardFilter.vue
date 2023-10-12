@@ -31,29 +31,33 @@ onMounted(() => {
 </script>
 <style scoped lang="scss">
 
+
 .footer-driver {
     margin-top: 10px;
     display: flex;
     justify-content: space-between;
-    button:nth-child(1){
+
+    .btn:nth-child(1) {
         background-color: #feecf0;
         color: #cc0f35;
-        font-size:16px;
+        font-size: 16px;
         width: calc(50% - 5px);
         font-weight: 500;
     }
-    button:nth-child(1):hover{
+
+    .btn:nth-child(1):hover {
         background-color: #fdd6df;
     }
-    button:nth-child(2){
+
+    .btn:nth-child(2) {
         background-color: #d70018;
         color: #fff;
         font-size: 16px;
         width: calc(50% - 5px);
         font-weight: 500;
     }
-    
-    
+
+
 }
 
 .wrapper-driver {
@@ -67,7 +71,7 @@ onMounted(() => {
 
 }
 
-.btn-driver-active{
+.btn-driver-active {
     background: #fef2f2 !important;
     border: 2px solid #d70018 !important;
     color: #d70018 !important;
