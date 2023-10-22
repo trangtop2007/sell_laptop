@@ -30,8 +30,6 @@ onMounted(() => {
 })
 </script>
 <style scoped lang="scss">
-
-
 .footer-driver {
     margin-top: 10px;
     display: flex;

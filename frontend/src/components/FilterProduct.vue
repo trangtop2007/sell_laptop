@@ -21,7 +21,7 @@
                         <button @click="show_filter.driver = true" class="btn-filter">
                             <font-awesome-icon class="icon" :icon="['fas', 'hard-drive']" /> <span>Ổ cứng</span>
                         </button>
-                        <DriverHardfilter v-show="show_filter.driver"></DriverHardfilter>
+                        <DriverHardFilter v-show="show_filter.driver"></DriverHardFilter>
                     </div>
                     <div>
                         <button class="btn-filter" @click="show_filter.ram=true">Dung lượng RAM</button>
@@ -62,7 +62,7 @@
 </template>
 <script setup>
 import { onMounted, reactive, ref } from 'vue';
-import DriverHardfilter from "./filter_product/DriverHardfilter.vue"
+import DriverHardFilter from './filter_product/DriverHardFilter.vue';
 import CapacityRamFilter from "./filter_product/CapacityRamFilter.vue"
 const show_filter = reactive({
     driver: false,

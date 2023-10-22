@@ -9,9 +9,9 @@
             <div class="product_title">
                 <h1 class="h5 mb-4">{{ data.product_title }} </h1>
                 <div class="row">
-                    <div class="col-8">
-                        <div class="wrapper-img-description rounded-4">
-                            <img :src="urlBack + data.product_image" alt="" class="rounded-3" height="300">
+                    <div class="col-lg-8 col-12 ">
+                        <div class="wrapper-img-description rounded-4 d-flex flex-sm-column flex-md-row">
+                            <img :src="urlBack + data.product_image" alt="" class="rounded-3 my-3" height="300">
                             <ul class="description">
                                 <h4 class="text-center">Tính năng nổi bật</h4>
                                 <ul>
@@ -21,89 +21,7 @@
                                 </ul>
                             </ul>
                         </div>
-                        <div class="wrapper-appreciate">
-                            <h5>Đánh giá & nhận xét {{ data.product_title }} </h5>
-                            <div class="row">
-                                <div class="col-5 d-flex flex-column align-items-center">
-                                    <span class="h3">5.0/5</span>
-                                    <div class="appreciate-star">
-                                        <span><font-awesome-icon :icon="['fas', 'star']" /></span>
-                                        <span><font-awesome-icon :icon="['fas', 'star']" /></span>
-                                        <span><font-awesome-icon :icon="['fas', 'star']" /></span>
-                                        <span><font-awesome-icon :icon="['fas', 'star']" /></span>
-                                        <span><font-awesome-icon :icon="['fas', 'star']" /></span>
-                                    </div>
-                                    <router-link :to="{ name: 'home' }" class="appreciate">
-                                        <span>1 đánh giá</span>
-                                    </router-link>
-                                </div>
-                                <div class="col-7">
 
-                                    <div class="star-5 d-flex align-items-center mb-2">
-                                        <div class="star">
-                                            <span>5</span> <span> <font-awesome-icon :icon="['fas', 'star']" /></span>
-                                        </div>
-                                        <progress value="32" max="100" class="progress-appreciate"></progress>
-                                    </div>
-
-                                    <div class="star-4 d-flex align-items-center mb-2 ">
-                                        <div class="star">
-                                            <span>4</span> <span> <font-awesome-icon :icon="['fas', 'star']" /></span>
-                                        </div>
-                                        <progress value="32" max="100" class="progress-appreciate"></progress>
-                                    </div>
-
-                                    <div class="star-3 d-flex align-items-center mb-2 ">
-                                        <div class="star">
-                                            <span>3</span> <span> <font-awesome-icon :icon="['fas', 'star']" /></span>
-                                        </div>
-                                        <progress value="32" max="100" class="progress-appreciate"></progress>
-                                    </div>
-
-                                    <div class="star-2 d-flex align-items-center mb-2 ">
-                                        <div class="star">
-                                            <span>2</span> <span> <font-awesome-icon :icon="['fas', 'star']" /></span>
-                                        </div>
-                                        <progress value="32" max="100" class="progress-appreciate"></progress>
-                                    </div>
-
-                                    <div class="star-1 d-flex align-items-center mb-2 ">
-                                        <div class="star">
-                                            <span>1</span> <span> <font-awesome-icon :icon="['fas', 'star']" /></span>
-                                        </div>
-                                        <progress value="32" max="100" class="progress-appreciate"></progress>
-                                    </div>
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="d-flex flex-column align-items-center">
-                                <h5 class="mb-4">Bạn đánh giá sao về sản phẩm này?</h5>
-                                <button class="btn btn-danger">Đánh giá ngay</button>
-                            </div>
-                            <hr>
-                            <div class="wrapper-comment">
-                                <div class="wrapper-filter-comment">
-                                    <h5>Lọc theo</h5>
-                                    <div class="status-filter mb-3">
-                                        <button class="btn btn-outline-dark me-3 ">Tất cả</button>
-                                        <button class="btn btn-outline-dark me-3">Có hình ảnh</button>
-                                        <button class="btn btn btn-outline-dark me-3">Đã mua hàng</button>
-                                    </div>
-                                    <div class="star-filter d-flex ">
-                                        <button class="btn btn-outline-dark star me-3"><span>5</span><span>
-                                                <font-awesome-icon :icon="['fas', 'star']" /></span></button>
-                                        <button class="btn btn-outline-dark star me-3"><span>4</span><span>
-                                                <font-awesome-icon :icon="['fas', 'star']" /></span></button>
-                                        <button class="btn btn-outline-dark star me-3"><span>3</span><span>
-                                                <font-awesome-icon :icon="['fas', 'star']" /></span></button>
-                                        <button class="btn btn-outline-dark star me-3"><span>2</span><span>
-                                                <font-awesome-icon :icon="['fas', 'star']" /></span></button>
-                                        <button class="btn btn-outline-dark star me-3"><span>1</span><span>
-                                                <font-awesome-icon :icon="['fas', 'star']" /></span></button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                     <div class="col">
                         <h4 class="h4">Nâng cấp máy tính</h4>
@@ -130,6 +48,89 @@
 
 
                     </div>
+                    <div class="wrapper-appreciate">
+                        <h5>Đánh giá & nhận xét {{ data.product_title }} </h5>
+                        <div class="row">
+                            <div class="col-5 d-flex flex-column align-items-center">
+                                <span class="h3">5.0/5</span>
+                                <div class="appreciate-star">
+                                    <span><font-awesome-icon :icon="['fas', 'star']" /></span>
+                                    <span><font-awesome-icon :icon="['fas', 'star']" /></span>
+                                    <span><font-awesome-icon :icon="['fas', 'star']" /></span>
+                                    <span><font-awesome-icon :icon="['fas', 'star']" /></span>
+                                    <span><font-awesome-icon :icon="['fas', 'star']" /></span>
+                                </div>
+                                <router-link :to="{ name: 'home' }" class="appreciate">
+                                    <span>1 đánh giá</span>
+                                </router-link>
+                            </div>
+                            <div class="col-7">
+
+                                <div class="star-5 d-flex align-items-center mb-2">
+                                    <div class="star">
+                                        <span>5</span> <span> <font-awesome-icon :icon="['fas', 'star']" /></span>
+                                    </div>
+                                    <progress value="32" max="100" class="progress-appreciate"></progress>
+                                </div>
+
+                                <div class="star-4 d-flex align-items-center mb-2 ">
+                                    <div class="star">
+                                        <span>4</span> <span> <font-awesome-icon :icon="['fas', 'star']" /></span>
+                                    </div>
+                                    <progress value="32" max="100" class="progress-appreciate"></progress>
+                                </div>
+
+                                <div class="star-3 d-flex align-items-center mb-2 ">
+                                    <div class="star">
+                                        <span>3</span> <span> <font-awesome-icon :icon="['fas', 'star']" /></span>
+                                    </div>
+                                    <progress value="32" max="100" class="progress-appreciate"></progress>
+                                </div>
+
+                                <div class="star-2 d-flex align-items-center mb-2 ">
+                                    <div class="star">
+                                        <span>2</span> <span> <font-awesome-icon :icon="['fas', 'star']" /></span>
+                                    </div>
+                                    <progress value="32" max="100" class="progress-appreciate"></progress>
+                                </div>
+
+                                <div class="star-1 d-flex align-items-center mb-2 ">
+                                    <div class="star">
+                                        <span>1</span> <span> <font-awesome-icon :icon="['fas', 'star']" /></span>
+                                    </div>
+                                    <progress value="32" max="100" class="progress-appreciate"></progress>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="d-flex flex-column align-items-center">
+                            <h5 class="mb-4">Bạn đánh giá sao về sản phẩm này?</h5>
+                            <button class="btn btn-danger">Đánh giá ngay</button>
+                        </div>
+                        <hr>
+                        <div class="wrapper-comment">
+                            <div class="wrapper-filter-comment">
+                                <h5>Lọc theo</h5>
+                                <div class="status-filter mb-3">
+                                    <button class="btn btn-outline-dark me-3 ">Tất cả</button>
+                                    <button class="btn btn-outline-dark me-3">Có hình ảnh</button>
+                                    <button class="btn btn btn-outline-dark me-3">Đã mua hàng</button>
+                                </div>
+                                <div class="star-filter d-flex ">
+                                    <button class="btn btn-outline-dark star me-3"><span>5</span><span>
+                                            <font-awesome-icon :icon="['fas', 'star']" /></span></button>
+                                    <button class="btn btn-outline-dark star me-3"><span>4</span><span>
+                                            <font-awesome-icon :icon="['fas', 'star']" /></span></button>
+                                    <button class="btn btn-outline-dark star me-3"><span>3</span><span>
+                                            <font-awesome-icon :icon="['fas', 'star']" /></span></button>
+                                    <button class="btn btn-outline-dark star me-3"><span>2</span><span>
+                                            <font-awesome-icon :icon="['fas', 'star']" /></span></button>
+                                    <button class="btn btn-outline-dark star me-3"><span>1</span><span>
+                                            <font-awesome-icon :icon="['fas', 'star']" /></span></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
             </div>
@@ -147,36 +148,66 @@
             </div>
         </div>
     </div>
+    <button ref="btn_modal" data-bs-target="#modalId" class="btn btn-primary d-none" data-bs-toggle="modal"></button>
+    <div class="modal fade" id="modalId" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" aria-modal="true"
+        role="dialog" aria-labelledby="modalTitleId">
+        <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-md" role="document">
+            <div class="modal-content bg-dark">
+                <div class="modal-header">
+                    <h5 class="modal-title text-success" id="modalTitleId">Thông báo</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" data-bs-target="#modalId"
+                        aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p class="h5 text-white">Để mua hàng bạn cần phải đăng nhập!</p>
+                </div>
+                <div class="modal-footer">
+                    <button data-bs-dismiss="modal" ref="btn_dismiss" data-bs-target="#modalId" class="btn btn-secondary">Trở lại</button>
+                    <router-link :to="{ name: 'login' }" class="btn btn-primary">Đăng nhập</router-link>
+                </div>
+            </div>
+        </div>
+    </div>
+    <Footer></Footer>
 </template>
 <script setup>
 import ax from '../axios';
+import Footer from '../components/Footer.vue';
 import Header from '../components/Header.vue';
 import { onMounted } from 'vue';
 import { ref } from 'vue';
-import { onBeforeRouteUpdate } from "vue-router"
-
+import { onBeforeRouteUpdate,onBeforeRouteLeave } from "vue-router"
+const btn_modal = ref()
+const btn_dismiss=ref()
 onBeforeRouteUpdate((to, from, next) => {
+    
     next()
     setTimeout(() => {
         window.location.reload()
     }, 10)
+})
+onBeforeRouteLeave(()=>{
+    btn_dismiss.value.click()
 })
 const { id } = defineProps({
     id: {
         type: String
     }
 })
+function showErrorSell() {
+    console.log(btn_modal.value.click());
+}
 onMounted(() => {
     getData(),
-    getUser()
+        getUser()
 })
-const isNotification=ref(false)
+const isNotification = ref(false)
 const product_description = ref({})
 const product_price = ref("")
 const urlBack = "http://127.0.0.1:8000/"
 const data = ref({})
 const productRelation = ref({})
-const user=ref({})
+const user = ref({})
 async function getProductRelation(product_name) {
     try {
         const response = await ax.get(`product/getRelation/${product_name}`)
@@ -186,27 +217,32 @@ async function getProductRelation(product_name) {
         console.error(error);
     }
 }
-async function getUser(){
-    try{
-        const response=await ax.get("user",{headers:{Authorization:`Bearer ${window.localStorage.getItem("token")}`}})
-        user.value=response.data
+async function getUser() {
+    try {
+        const response = await ax.get("user", { headers: { Authorization: `Bearer ${window.localStorage.getItem("token")}` } })
+        user.value = response.data
     }
-    catch(error){
+    catch (error) {
         console.log(error);
     }
 }
-async function addCart(){
-    const formData=new FormData()
-    formData.append("product_id",data.value.product_id)
-    formData.append("user_id",user.value.id)
-    try{
-        const response=await ax.post("cart",formData)
-        if(response.data.status=="OK"){
-            isNotification.value=true
+async function addCart() {
+    if (user.value) {
+        showErrorSell()
+    } else {
+        const formData = new FormData()
+        formData.append("product_id", data.value.product_id)
+        formData.append("user_id", user.value.id)
+        try {
+            const response = await ax.post("cart", formData)
+            if (response.data.status == "OK") {
+                isNotification.value = true
+            }
+        } catch (error) {
+            console.error(error);
         }
-    }catch(error){
-        console.error(error);
     }
+
 }
 function analysisPrice(price) {
     price = String(price)
@@ -231,8 +267,8 @@ async function getData() {
 </script>
 <style lang="scss" scoped>
 .wrapper {
-    padding-top: 165px;
-    background-color: rgb(237,240,243);
+    padding-top: 190px;
+    background-color: rgb(237, 240, 243);
 
     &-img-description {
         background: linear-gradient(90deg, #dd5e89, #f7bb97);

@@ -3,6 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\Products\ApiProductController;
+use App\Models\Chat;
+use Illuminate\Support\Facades\App;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,10 +15,13 @@ use App\Http\Controllers\Products\ApiProductController;
 | routes are loaded by the RouteServiceProvider and all of them will
 | be assigned to the "web" middleware group. Make something great!
 |
+
+
 */
 
+
 Route::get('/', function () {
-    return view('welcome');
+    echo __("hello");
 });
 Route::get("/test",[TestController::class,"index"]);
 Route::resource("/admin/product",ApiProductController::class);

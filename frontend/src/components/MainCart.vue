@@ -27,9 +27,9 @@
                                 <span>{{ analysisPrice(product.product.product_price) }}₫</span>
                             </td>
                             <td>
-                                <input type="number" name="" id="" v-model="product.product_amount"
-                                    @change="update_total($event, index, product.product.product_price)" min="0"
-                                    style="width: 40px;">
+                                <input type="number" v-model="product.product_amount"
+                                    @input="update_total($event, index, product.product.product_price)" min="1"
+                                    style="width: 40px;" >
                             </td>
                             <td>
                                 <span>{{ analysisPrice(total_price[index]) }}₫</span>

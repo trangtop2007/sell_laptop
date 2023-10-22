@@ -43,7 +43,7 @@ class ApiCartCotnroller extends Controller
         ];
         $validator=Validator($request->all(),$rules);
         if($validator->fails()){
-            return response()->json($validator->errors());
+            return response()->json($validator->errors(),400);
         }
         else{
             if(Cart::where("user_id",$request->user_id)->where("product_id",$request->product_id)->get()->count()>0){

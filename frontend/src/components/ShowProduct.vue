@@ -1,7 +1,8 @@
 <template>
-    <div class="container-fluid">
+    <div class="container-fluid mt-5">
         <div class="container">
-            <div class="wrapper row row-cols-lg-4 row-cols-md-3 row-cols-2">
+            <h1 v-if="route.query.s" class="h3 mb-3">Tất cả có {{ data.length }} kết quả "{{ route.query.s }}" : </h1>
+            <div class="wrapper row row-cols-lg-4 row-cols-md-3 row-cols-2 m-0">
                 <div class="card mb-4" v-for="(product, index) in data" :key="index">
                     <router-link :to="{ name: 'detail_product', params: { id: product.product_id } }"
                         class="wrapper-card nav-link">
@@ -43,30 +44,34 @@
 import { reactive, ref } from 'vue';
 import ax from '../axios';
 import { onMounted } from 'vue';
-import { useRoute } from 'vue-router';
+import { RouterLink, useLink, useRoute } from 'vue-router';
+const route = useRoute()
+const search = ref(route.query.s ?? "")
 const isFavorite = reactive({})
-const route=useRoute()
-console.log(route);
 const data = ref({})
-onMounted(() => {
-    getData()
-})
+
 const urlBack = ref("http://127.0.0.1:8000/")
-const search=ref(route.query.s??"")
-async function getData() {
-    try {
-        const response = await ax.get(`admin/product?s=${search.value}`)
-        data.value = response.data.data
+const response = await ax.get(`admin/product?s=${search.value}`)
+data.value = response.data.data
 
-
-        for (let i = 1; i <= data.value.length; i++) {
-            isFavorite[i] = false
-        }
-    }
-    catch (error) {
-        console.log(error);
-    }
+for (let i = 1; i <= data.value.length; i++) {
+    isFavorite[i] = false
 }
+
+// async function getData() {
+//     try {
+//         const response = await ax.get(`admin/product?s=${search.value}`)
+//         data.value = response.data.data
+
+
+//         for (let i = 1; i <= data.value.length; i++) {
+//             isFavorite[i] = false
+//         }
+//     }
+//     catch (error) {
+//         console.log(error);
+//     }
+// }
 </script>
 <style scoped lang="scss">
 $color_start: #f59e0b;
@@ -89,6 +94,7 @@ $color_start: #f59e0b;
             }
         }
     }
+
     .favorite span:nth-child(1) {
         font-size: 17px;
         margin-right: 5px;
@@ -104,9 +110,11 @@ $color_start: #f59e0b;
         font-size: 17px;
         font-weight: bold;
     }
+
     .product-price span:nth-child(1) {
         font-weight: 400;
     }
+
     .product-price span:nth-child(2) {
         color: #d70018;
         display: inline-block;
@@ -115,6 +123,7 @@ $color_start: #f59e0b;
         line-height: 1.1;
         margin-bottom: 10px !important;
     }
+
     .wrapper-endow {
         display: flex;
         justify-content: center;

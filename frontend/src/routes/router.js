@@ -11,6 +11,39 @@ const router = createRouter({
       name: "home",
     },
     {
+      path: "/user",
+      component: () => import("../pages/user.vue"),
+      name: "user",
+      children: [
+        {
+          path: "",
+          redirect: { name: "user_account" },
+        },
+        {
+          path: "account",
+          name: "user_account",
+          components: {
+            user: () => import("../components/user/profile/Profile.vue"),
+          },
+        },
+      ],
+      beforeEnter: (to, from, next) => {
+        const token = window.localStorage.getItem("token");
+        if (!token) {
+          next({ name: "login" });
+        }
+        ax.get("user", { headers: { Authorization: `Bearer ${token}` } }).then(
+          (response) => {
+            if (!response.data) {
+              next({ name: "login" });
+            }
+          }
+        );
+        next()
+      },
+    },
+
+    {
       path: "/login",
       component: () => import("../pages/login.vue"),
       alias: ["/Login"],
@@ -18,22 +51,21 @@ const router = createRouter({
     },
     {
       path: "/register",
-      component: () => import("../pages/register.vue"), 
+      component: () => import("../pages/register.vue"),
       name: "register",
       alias: ["/Register"],
     },
     {
-      path:"/cart",
-      component:()=>import("../pages/cart.vue"),
-      name:"cart",
-      alias:["/Cart"]
+      path: "/cart",
+      component: () => import("../pages/cart.vue"),
+      name: "cart",
+      alias: ["/Cart"],
     },
     {
       path: "/product/p/:id(\\d+)",
       component: () => import("../pages/detailProduct.vue"),
       name: "detail_product",
       props: true,
-      
     },
 
     {
@@ -82,9 +114,29 @@ const router = createRouter({
             },
           ],
         },
+        {
+          path: "new",
+          children: [
+            {
+              path: "",
+              components: {
+                admin_main: () =>
+                  import(".././components/dashboard/new/new.vue"),
+              },
+              name: "admin_new",
+            },
+            {
+              path: "add",
+              name: "admin_new_add",
+              components: {
+                admin_main: () =>
+                  import(".././components/dashboard/new/add.vue"),
+              },
+            },
+          ],
+        },
       ],
-      beforeEnter: () => {
-        const router = useRouter();
+      beforeEnter: (to, from, next) => {
         const token = window.localStorage.getItem("token");
         if (token) {
           ax.get("/user", {
@@ -92,12 +144,18 @@ const router = createRouter({
           }).then(function (response) {
             console.log(response.data);
             if (response.data.role != 4) {
-              router.push({ name: "home" });
+              next({ name: "home" });
             }
           });
         } else {
-          router.push({ name: "login" });
+          next({ name: "login" });
         }
+      },
+    },
+    {
+      path: "/:pathMatch(.*)*",
+      redirect: {
+        name: "home",
       },
     },
   ],

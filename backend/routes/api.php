@@ -1,13 +1,11 @@
 <?php
 
+use App\Http\Controllers\Admin\News\ApiNewController;
 use App\Http\Controllers\ApiAuthController;
 use App\Http\Controllers\ApiCartCotnroller;
-use App\Http\Controllers\Products\ApiDetailProduct;
-use App\Http\Controllers\Products\ApiProductController;
-use App\Http\Controllers\TestController;
-use App\Http\Resources\ApiUserResource;
-use App\Models\User;
-use Illuminate\Http\Request;
+use App\Http\Controllers\Admin\Products\ApiDetailProduct;
+use App\Http\Controllers\Admin\Products\ApiProductController;
+use App\Http\Controllers\ApiChatController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,9 +23,11 @@ Route::post("/register",[ApiAuthController::class,"register"]);
 Route::post("/login",[ApiAuthController::class,"login"]);
 Route::get("/user",[ApiAuthController::class,"user"]);
 
-Route::apiResource("/admin/product",ApiProductController::class)->except("update");
+Route::apiResource("/admin/product",ApiProductController::class);
 Route::post("/admin/product/{id}",[ApiProductController::class,"update"]);
 Route::get("/product/getRelation/{product_name}",[ApiDetailProduct::class,"getProductRelation"]);
 
 Route::apiResource("cart",ApiCartCotnroller::class);
 Route::get("cart/u/{id}",[ApiCartCotnroller::class,"getDataByUserId"]);
+Route::apiResource("admin/new",ApiNewController::class);
+Route::apiResource("chat",ApiChatController::class);

@@ -8,7 +8,7 @@
           <img src="../assets//img/top-banner-giao-nhanh-mien-phi.webp" alt="" class="flex-fill" />
         </div>
 
-        <div id="carouselId" class="carousel slide d-lg-none d-block" data-bs-ride="carousel">
+        <div id="carouselId" class="carousel slide d-md-none " data-bs-ride="carousel">
           <ul class="carousel-indicators d-none" style="list-style: none">
             <li data-bs-target="#carouselId" data-bs-slide-to="0" class="active" aria-current="true"
               aria-label="First slide"></li>
@@ -83,7 +83,7 @@
             <div>Đăng nhập</div>
           </router-link>
           <div class="dropdown-menu">
-            <router-link class="dropdown-item" :to="{ name: 'home' }">
+            <router-link class="dropdown-item" :to="{ name: 'user_account' }">
               Thông tin
             </router-link>
             <button class="dropdown-item" @click="logout">Đăng xuất</button>
@@ -121,8 +121,10 @@ const data_breadcrumb = defineProps({
 
 
 function onSearch() {
-  emits("search", "")
-  router.replace({ name: 'home', query: { s: searchText.value } })
+  router.push({ name: 'home', query: { s: searchText.value } })
+  setTimeout(()=>{
+    emits("search", "")
+  },10)
 }
 ax.get("/user", { headers: { Authorization: `Bearer ${token}` } }).then(
   (response) => {
@@ -188,7 +190,7 @@ $color_red: rgb(213, 13, 30);
 
 @media screen and (max-width: 768px) {
   .brand {
-    font-size: 17px !important;
+    font-size: 19px !important;
   }
 
   #search {
@@ -205,7 +207,7 @@ $color_red: rgb(213, 13, 30);
 }
 
 .brand {
-  font-size: 30px;
+  font-size: 24px;
   color: white;
 }
 

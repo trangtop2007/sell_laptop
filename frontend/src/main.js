@@ -21,11 +21,32 @@ import {
   faKey,
   faComment,
   faEnvelope,
+  faNewspaper,
+  faPaperPlane,
+  faMessage,
+  faClock,
+  faAngleUp,
+  faBars
 } from "@fortawesome/free-solid-svg-icons";
-import { faHeart as farHeart } from "@fortawesome/free-regular-svg-icons";
-// Add the Font Awesome icon(s) you want to use to the library
+import {
+  faHeart as farHeart,
+  faUser as farUser,
+  faFileLines as farFileLines,
+  faBell as farBell,
+  faCreditCard as faCreditCard
+} from "@fortawesome/free-regular-svg-icons";
 
 library.add(
+  faBars,
+  faCreditCard,
+  farBell,
+  farFileLines,
+  farUser,
+  faAngleUp,
+  faClock,
+  faMessage,
+  faPaperPlane,
+  faNewspaper,
   farHeart,
   faStar,
   fasHeart,
@@ -52,16 +73,7 @@ import router from "./routes/router.js";
 import axios from "axios";
 import "../node_modules/bootstrap/dist/css/bootstrap.css";
 import "../node_modules/bootstrap/dist/js/bootstrap.bundle";
-window.axios = axios;
-
-
-import gAuthPlugin from "vue3-google-oauth2"
 const app = createApp(App);
-app.use(gAuthPlugin,{
-  clientId:import.meta.env.VITE_CLIENT_ID,
-  scope:"email",
-  prompt:"consent"
-})
 app.use(router);
 app.component("font-awesome-icon", FontAwesomeIcon);
 app.mount("#app");

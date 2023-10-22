@@ -1,9 +1,8 @@
 <?php
 
-namespace App\Http\Controllers\Products;
+namespace App\Http\Controllers\Admin\Products;
 
 use App\Http\Controllers\Controller;
-use App\Http\Resources\ApiProduct;
 use App\Http\Resources\ApiProductResource;
 use App\Http\Resources\ApiShowProductResource;
 use App\Models\Category;
